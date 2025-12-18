@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSSE Platform | Enhanced</title>
+    <title>HSSE Platform | Presentation</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,124 +13,180 @@
 </head>
 <body>
 
-<!-- LIGHTBOX (модальное окно для фото) -->
+<!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
     <div class="lightbox-overlay"></div>
     <div class="lightbox-content">
         <img id="lightbox-img" src="" alt="Full Screen Image">
-        <button class="close-btn">×</button>
+        <button class="close-btn">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 10L30 30M30 10L10 30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
     </div>
 </div>
 
-<!-- Основной контейнер -->
-<main class="main-container">
+<main class="slides-container">
 
-    <!-- СЕКЦИЯ 1: Главная -->
-    <section class="section section-hero">
-        <div class="content-wrapper">
-            <h1 class="reveal-text">HSSE<br><span class="gradient-text">EDUCATION</span><br>PLATFORM</h1>
+    <!-- СЛАЙД 1 -->
+    <section class="slide slide-hero">
+        <div class="slide-content">
+            <h1 class="reveal-text stagger-text">HSSE<br><span class="gradient-text">EDUCATION</span><br>PLATFORM</h1>
             <p class="subtitle reveal-text" style="transition-delay: 0.2s;">Платформа нового поколения для обучения</p>
 
             <div class="team-intro reveal-text" style="transition-delay: 0.4s;">
                 <p><strong>КОМАНДА</strong></p>
                 <p>Максим Вершинин • Матвей Жихарев<br>Артём Смирнов • Хабибулло Турсункулов</p>
             </div>
-
-            <div class="scroll-hint reveal-text" style="transition-delay: 0.6s;">
-                <span>↓ Листайте вниз</span>
-            </div>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 2: О проекте -->
-    <section class="section">
-        <div class="content-wrapper">
-            <h2 class="reveal-text">О проекте</h2>
-            <div class="grid-features">
-                <div class="card reveal-card">
-                    <h3>Экспертиза</h3>
-                    <p>Друг Максима занимается ремонтом iPhone и обладает глубокими знаниями в этой области.</p>
-                </div>
-                <div class="card reveal-card" style="transition-delay: 0.1s;">
-                    <h3>Потребность</h3>
-                    <p>Структурированный контент, который можно быстро освоить — спрос огромный.</p>
-                </div>
-                <div class="card reveal-card" style="transition-delay: 0.2s;">
-                    <h3>Проблема рынка</h3>
-                    <p>Традиционные источники неэффективны: форумы, статьи, видео — всё разрозненно.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- СЕКЦИЯ 3: Решение -->
-    <section class="section">
-        <div class="content-wrapper">
-            <h2 class="reveal-text">Решение: Платформа</h2>
-            <div class="features-list">
-                <div class="feature-row reveal-card">
-                    <div class="icon-box"></div>
-                    <div class="text-box">
-                        <div class="feature-title">Структурированные курсы</div>
-                        <p>Систематизированная информация от экспертов, разложенная по полочкам.</p>
+    <!-- СЛАЙД 2: О ПРОЕКТЕ -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Спрос</h2>
+            <div class="grid-features-compact">
+                <div class="card-compact reveal-card card-scale-animation blur-in">
+                    <div class="card-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" stroke="#5b6cf9" stroke-width="2"/>
+                            <path d="M20 10V20M20 20L26 14" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
+                    <h3>Экспертный контент</h3>
+                    <p>Знания практиков и экспертов, собранные в структурированные курсы от профессионалов отрасли.</p>
                 </div>
-                <div class="feature-row reveal-card" style="transition-delay: 0.1s;">
-                    <div class="icon-box"></div>
-                    <div class="text-box">
-                        <div class="feature-title">Защита контента</div>
-                        <p>Шифрование, потоковая передача, ограничения по IP и защита от скачивания.</p>
+                <div class="card-compact reveal-card card-scale-animation blur-in" style="transition-delay: 0.1s;">
+                    <div class="card-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12H32V32H8V12Z" stroke="#5b6cf9" stroke-width="2"/>
+                            <path d="M12 8V12M20 8V12M28 8V12" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
+                    <h3>Один источник истины</h3>
+                    <p>Вместо разрозненных форумов и видео — единая платформа с проверенной информацией.</p>
                 </div>
-                <div class="feature-row reveal-card" style="transition-delay: 0.2s;">
-                    <div class="icon-box"></div>
-                    <div class="text-box">
-                        <div class="feature-title">Прогресс обучения</div>
-                        <p>Последовательное прохождение уроков, тесты и сертификация.</p>
+                <div class="card-compact reveal-card card-scale-animation blur-in" style="transition-delay: 0.2s;">
+                    <div class="card-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="8" stroke="#5b6cf9" stroke-width="2"/>
+                            <circle cx="28" cy="12" r="8" stroke="#5b6cf9" stroke-width="2"/>
+                            <circle cx="20" cy="28" r="8" stroke="#5b6cf9" stroke-width="2"/>
+                            <path d="M16 16L24 24M24 16L16 24" stroke="#5b6cf9" stroke-width="1.5"/>
+                        </svg>
                     </div>
-                </div>
-                <div class="feature-row reveal-card" style="transition-delay: 0.3s;">
-                    <div class="icon-box"></div>
-                    <div class="text-box">
-                        <div class="feature-title">Масштабируемость</div>
-                        <p>Один движок → множество курсов по любым направлениям (не только ремонт).</p>
-                    </div>
+                    <h3>Масштабируемость</h3>
+                    <p>От одного направления — к полной экосистеме курсов по всем сложным техническим и профессиональным навыкам.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 4: Стек технологий (ПО ОДНОМУ) -->
-    <section class="section">
-        <div class="content-wrapper">
+    <!-- СЛАЙД 3 -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Наше предложение: Платформа</h2>
+            <div class="features-list-compact">
+                <div class="feature-row-compact reveal-card feature-slide-in">
+                    <div class="icon-small">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="8" y="8" width="34" height="26" stroke="#5b6cf9" stroke-width="2" rx="2"/>
+                            <path d="M12 12L25 22L38 12" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="text-box">
+                        <div class="feature-title-small">Структурированные курсы</div>
+                        <p>От экспертов, разложено по полочкам.</p>
+                    </div>
+                </div>
+                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.1s;">
+                    <div class="icon-small">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 8C16.7 8 10 14.7 10 23C10 31.3 16.7 38 25 38C33.3 38 40 31.3 40 23C40 14.7 33.3 8 25 8Z" stroke="#5b6cf9" stroke-width="2"/>
+                            <circle cx="25" cy="23" r="3" fill="#5b6cf9"/>
+                        </svg>
+                    </div>
+                    <div class="text-box">
+                        <div class="feature-title-small">Защита контента</div>
+                        <p>Шифрование, потоковая передача, ограничения по IP.</p>
+                    </div>
+                </div>
+                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.2s;">
+                    <div class="icon-small">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20L20 28L38 10" stroke="#5b6cf9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="text-box">
+                        <div class="feature-title-small">Прогресс обучения</div>
+                        <p>Последовательное прохождение, тесты и сертификация.</p>
+                    </div>
+                </div>
+                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.3s;">
+                    <div class="icon-small">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 38H38M25 8L8 32H42L25 8Z" stroke="#5b6cf9" stroke-width="2" stroke-linejoin="round"/>
+                            <circle cx="25" cy="25" r="2" fill="#5b6cf9"/>
+                        </svg>
+                    </div>
+                    <div class="text-box">
+                        <div class="feature-title-small">Масштабируемость</div>
+                        <p>От одного курса к множеству по любым направлениям.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 4: СТЕК ТЕХНОЛОГИЙ (РАСШИРЕННЫЙ) -->
+    <section class="slide">
+        <div class="slide-content">
             <h2 class="reveal-text">Стек технологий</h2>
-            <div class="tech-grid">
-                <!-- Задержка увеличена для эффекта "по очереди" -->
-                <div class="tech-item reveal-pop" style="transition-delay: 0.0s;">
+            <div class="tech-grid-compact">
+                <!-- Ряд 1 -->
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.0s;">
                     <img src="images/logo-java.png" alt="Java">
                     <div class="tech-label">Java</div>
                 </div>
-                <div class="tech-item reveal-pop" style="transition-delay: 0.15s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.15s;">
                     <img src="images/logo-spring.png" alt="Spring">
                     <div class="tech-label">Spring</div>
                 </div>
-                <div class="tech-item reveal-pop" style="transition-delay: 0.3s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.3s;">
+                    <img src="images/logo-maven.png" alt="Maven">
+                    <div class="tech-label">Maven</div>
+                </div>
+
+                <!-- Ряд 2 -->
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.45s;">
                     <img src="images/logo-vue.png" alt="Vue.js">
                     <div class="tech-label">Vue.js</div>
                 </div>
-                <div class="tech-item reveal-pop" style="transition-delay: 0.45s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.6s;">
                     <img src="images/logo-js.png" alt="JavaScript">
                     <div class="tech-label">JavaScript</div>
                 </div>
-                <div class="tech-item reveal-pop" style="transition-delay: 0.6s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.75s;">
+                    <img src="images/logo-swagger.png" alt="Swagger">
+                    <div class="tech-label">Swagger</div>
+                </div>
+
+                <!-- Ряд 3 -->
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.9s;">
                     <img src="images/logo-postgresql.png" alt="PostgreSQL">
                     <div class="tech-label">PostgreSQL</div>
                 </div>
-                <div class="tech-item reveal-pop" style="transition-delay: 0.75s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 1.05s;">
                     <img src="images/logo-minio.png" alt="MinIO">
                     <div class="tech-label">MinIO</div>
                 </div>
-                <div class="tech-item reveal-pop" style="transition-delay: 0.9s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 1.2s;">
+                    <img src="images/logo-postman.png" alt="Postman">
+                    <div class="tech-label">Postman</div>
+                </div>
+
+                <!-- Ряд 4 -->
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 1.35s;">
                     <img src="images/logo-docker.png" alt="Docker">
                     <div class="tech-label">Docker</div>
                 </div>
@@ -138,137 +194,164 @@
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 5: VK Auth -->
-    <section class="section">
-        <div class="content-wrapper">
+    <!-- СЛАЙД 5 -->
+    <section class="slide">
+        <div class="slide-content">
             <h2 class="reveal-text">Аутентификация VK</h2>
-            <div class="feature-highlight reveal-card" style="transition-delay: 0.2s;">
-                <img src="images/logo-vk.png" alt="VK" class="feature-icon">
-                <h3 style="margin-top: 30px; font-size: 2rem;">VK OAuth</h3>
-                <p>Простая и быстрая регистрация в один клик.<br>Удобство для пользователей, безопасность для платформы.</p>
+            <div class="feature-highlight-compact reveal-card feature-glow-animation pulse-border">
+                <img src="images/logo-vk.png" alt="VK" class="feature-icon-small">
+                <h3 style="margin-top: 20px;">VK OAuth</h3>
+                <p>Простая регистрация в один клик.<br>Удобно для пользователей, безопасно для платформы.</p>
             </div>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 6: Streaming -->
-    <section class="section">
-        <div class="content-wrapper">
+    <!-- СЛАЙД 6 -->
+    <section class="slide">
+        <div class="slide-content">
             <h2 class="reveal-text">Собственный streaming</h2>
-            <div class="features-list">
-                <div class="feature-row reveal-card">
-                    <div class="icon-box"></div>
+            <div class="features-list-compact">
+                <div class="feature-row-compact reveal-card feature-slide-in">
+                    <div class="icon-small shake-icon">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 12L25 22L10 32V12Z" fill="#5b6cf9"/>
+                            <rect x="28" y="12" width="10" height="20" fill="#5b6cf9"/>
+                        </svg>
+                    </div>
                     <div class="text-box">
-                        <div class="feature-title">Потоковая передача</div>
-                        <p>Видео транслируется чанками, никогда не загружается целиком на диск пользователя.</p>
+                        <div class="feature-title-small">Потоковая передача</div>
+                        <p>Видео не загружается целиком, идет потоком.</p>
                     </div>
                 </div>
-                <div class="feature-row reveal-card" style="transition-delay: 0.1s;">
-                    <div class="icon-box"></div>
+                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.1s;">
+                    <div class="icon-small shake-icon">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 12C12 12 10 14 10 17V33C10 36 12 38 15 38H35C38 38 40 36 40 33V17C40 14 38 12 35 12H15Z" stroke="#5b6cf9" stroke-width="2"/>
+                            <path d="M20 24L30 24" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="text-box">
-                        <div class="feature-title">Шифрование трафика</div>
-                        <p>HTTPS + токены доступа. Защита от перехвата и несанкционированного копирования.</p>
+                        <div class="feature-title-small">Шифрование трафика</div>
+                        <p>HTTPS + токены. Защита от перехвата и копирования.</p>
                     </div>
                 </div>
-                <div class="feature-row reveal-card" style="transition-delay: 0.2s;">
-                    <div class="icon-box"></div>
+                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.2s;">
+                    <div class="icon-small shake-icon">
+                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M25 8L32 12V25C32 32 25 40 25 40C25 40 18 32 18 25V12L25 8Z" stroke="#5b6cf9" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M22 24L25 27L30 20" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <div class="text-box">
-                        <div class="feature-title">Умная оптимизация</div>
-                        <p>Адаптивное качество под скорость интернета, мгновенная перемотка.</p>
+                        <div class="feature-title-small">Умная оптимизация</div>
+                        <p>Адаптивное качество под скорость интернета.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 7: Дизайн -->
-    <section class="section">
-        <div class="content-wrapper">
+    <!-- СЛАЙД 7 -->
+    <section class="slide">
+        <div class="slide-content">
             <h2 class="reveal-text">Дизайн платформы</h2>
-            <div class="design-showcase">
-                <div class="design-block white reveal-card">
-                    <div>
-                        <h3 style="color: black;">Белый фон</h3>
-                        <p style="color: #444;">Чистота, воздух и фокус на контенте.</p>
+            <div class="design-showcase-compact">
+                <div class="design-block-compact white reveal-card design-rotate-animation parallax-card">
+                    <h3 style="color: black;">Белый фон</h3>
+                    <p style="color: #444;">Чистота и фокус.</p>
+                </div>
+                <div class="design-block-compact dark reveal-card design-rotate-animation parallax-card" style="transition-delay: 0.2s;">
+                    <h3>Контраст</h3>
+                    <p>Максимальная читаемость.</p>
+                </div>
+                <div class="design-block-compact glass reveal-card design-rotate-animation parallax-card" style="transition-delay: 0.4s;">
+                    <h3>UX/UI</h3>
+                    <p>Интуитивный интерфейс.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 8: ИНТЕРФЕЙС (БЕЗ СКОБОК И НОВЫЙ РАЗМЕР) -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Интерфейс</h2>
+            <div class="screenshots-grid-compact">
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift">
+                    <img src="images/screenshot-1.png" alt="Главная">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
                 </div>
-                <div class="design-block dark reveal-card" style="transition-delay: 0.2s;">
-                    <div>
-                        <h3>Контраст</h3>
-                        <p>Максимальная читаемость текста.</p>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.1s;">
+                    <img src="images/screenshot-2.png" alt="Урок">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
                 </div>
-                <div class="design-block glass reveal-card" style="transition-delay: 0.4s;">
-                    <div>
-                        <h3>UX/UI</h3>
-                        <p>Интуитивный интерфейс, понятный сразу.</p>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.2s;">
+                    <img src="images/screenshot-3.png" alt="Кабинет">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.3s;">
+                    <img src="images/screenshot-4.png" alt="Админ">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 8: Скриншоты (4 шт, кликабельные) -->
-    <section class="section">
-        <div class="content-wrapper">
-            <h2 class="reveal-text">Интерфейс (нажмите для просмотра)</h2>
-            <div class="screenshots-grid">
-                <div class="screenshot reveal-card">
-                    <img src="images/screenshot-1.png" alt="Главная страница">
-                    <div class="zoom-icon"></div>
-                </div>
-                <div class="screenshot reveal-card" style="transition-delay: 0.1s;">
-                    <img src="images/screenshot-2.png" alt="Страница урока">
-                    <div class="zoom-icon"></div>
-                </div>
-                <div class="screenshot reveal-card" style="transition-delay: 0.2s;">
-                    <img src="images/screenshot-3.png" alt="Личный кабинет">
-                    <div class="zoom-icon"></div>
-                </div>
-                <div class="screenshot reveal-card" style="transition-delay: 0.3s;">
-                    <img src="images/screenshot-4.png" alt="Админ панель">
-                    <div class="zoom-icon"></div>
-                </div>
+    <!-- СЛАЙД 9 -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Планы на будущее</h2>
+            <div class="roadmap-list-compact">
+                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up">Курсы по разным направлениям</div>
+                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.1s;">Мобильное приложение (iOS/Android)</div>
+                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.2s;">DRM технологии и Watermarking</div>
+                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.3s;">Полноценный биллинг и подписки</div>
+                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.4s;">Прямые эфиры и вебинары</div>
             </div>
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 9: Планы -->
-    <section class="section">
-        <div class="content-wrapper">
-            <h2 class="reveal-text">Планы</h2>
-            <div class="roadmap-list">
-                <div class="roadmap-item reveal-text">Масштабирование: курсы по разным направлениям</div>
-                <div class="roadmap-item reveal-text" style="transition-delay: 0.1s;">Мобильное приложение (iOS/Android)</div>
-                <div class="roadmap-item reveal-text" style="transition-delay: 0.2s;">DRM технологии (Watermarking)</div>
-                <div class="roadmap-item reveal-text" style="transition-delay: 0.3s;">Полноценный биллинг и подписки</div>
-                <div class="roadmap-item reveal-text" style="transition-delay: 0.4s;">Динамические водяные знаки (анти-слив)</div>
-                <div class="roadmap-item reveal-text" style="transition-delay: 0.5s;">Прямые эфиры и вебинары внутри платформы</div>
-                <div class="roadmap-item reveal-text" style="transition-delay: 0.6s;">Микросервисная архитектура</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- СЕКЦИЯ 10: Команда (ОБНОВЛЕННЫЕ РОЛИ) -->
-    <section class="section">
-        <div class="content-wrapper">
+    <!-- СЛАЙД 10 -->
+    <section class="slide">
+        <div class="slide-content">
             <h2 class="reveal-text">Команда проекта</h2>
-            <div class="team-grid">
-                <div class="team-member reveal-pop">
+            <div class="team-grid-compact">
+                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect">
                     <img src="images/team-member-1.jpg" alt="Максим Вершинин">
                     <div class="member-name">Максим Вершинин</div>
                     <div class="member-role">TeamLead</div>
                 </div>
-                <div class="team-member reveal-pop" style="transition-delay: 0.1s;">
+                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect" style="transition-delay: 0.1s;">
                     <img src="images/team-member-2.jpg" alt="Матвей Жихарев">
                     <div class="member-name">Матвей Жихарев</div>
                     <div class="member-role">Frontend</div>
                 </div>
-                <div class="team-member reveal-pop" style="transition-delay: 0.2s;">
+                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect" style="transition-delay: 0.2s;">
                     <img src="images/team-member-3.jpg" alt="Артём Смирнов">
                     <div class="member-name">Артём Смирнов</div>
                     <div class="member-role">Backend</div>
                 </div>
-                <div class="team-member reveal-pop" style="transition-delay: 0.3s;">
+                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect" style="transition-delay: 0.3s;">
                     <img src="images/team-member-4.jpg" alt="Хабибулло Турсункулов">
                     <div class="member-name">Хабибулло Турсункулов</div>
                     <div class="member-role">Backend</div>
@@ -277,25 +360,24 @@
         </div>
     </section>
 
-    <!-- СЕКЦИЯ 11: Финал -->
-    <section class="section section-footer">
-        <div class="content-wrapper">
-            <h1 class="reveal-text">Спасибо за внимание!</h1>
+    <!-- СЛАЙД 11 -->
+    <section class="slide slide-footer">
+        <div class="slide-content">
+            <h1 class="reveal-text fade-in-scale">Спасибо за внимание!</h1>
             <div class="contacts reveal-pop" style="transition-delay: 0.2s;">
-                <div class="qr-box">
+                <div class="qr-box bounce-in">
                     <img src="images/qr-code.png" alt="QR Code">
                 </div>
-                <p style="margin-top: 25px; font-size: 1.5rem;">hsse-platform.com</p>
+                <p style="margin-top: 15px; font-size: 1.3rem;">hsse-platform.com</p>
             </div>
-            <p class="reveal-text" style="transition-delay: 0.4s; margin-top: 40px; color: var(--text-gray); font-size: 1.2rem;">
-                Вопросы? 📧 info@hsse-platform.com
+            <p class="reveal-text" style="transition-delay: 0.4s; margin-top: 25px; color: var(--text-gray); font-size: 1rem;">
+                Вопросы? info@hsse-platform.com
             </p>
         </div>
     </section>
 
 </main>
 
-<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-<script src="js/scroll-animation.js"></script>
+<script src="js/slides.js"></script>
 </body>
 </html>
