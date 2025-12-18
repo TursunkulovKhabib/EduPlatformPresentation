@@ -566,13 +566,15 @@ p {
     }
 }
 
-/* SCREENSHOTS - УМЕНЬШЕНЫ НА 7% + БОЛЬШИЕ ОТСТУПЫ */
+/* SCREENSHOTS - УВЕЛИЧЕННЫЙ КОНТЕЙНЕР + ВЫСОКИЙ GAP */
 .screenshots-grid-compact {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;              /* ← БЫЛО 2.5rem, ТЕПЕРЬ 4rem */
+    gap: 6rem;              /* ← УВЕЛИЧЕНО с 4rem на 6rem */
     width: 100%;
-    max-height: 500px;
+    max-height: 650px;      /* ← УВЕЛИЧЕНО с 500px на 650px */
+    transform: scale(0.93);
+    transform-origin: center;
 }
 
 .screenshot-compact {
@@ -583,8 +585,6 @@ p {
     position: relative;
     cursor: pointer;
     aspect-ratio: 16/9;
-    width: 93%;              /* ← НОВОЕ: 93% вместо 100% (на 7% меньше) */
-    margin: 0 auto;          /* ← ЦЕНТРИРУЕМ */
 }
 
 .screenshot-compact img {
