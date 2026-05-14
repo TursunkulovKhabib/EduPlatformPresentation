@@ -10,6 +10,312 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ НОВЫХ СЛАЙДОВ ===== */
+
+        /* BADGE ДЛЯ РОЛЕЙ */
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-lead { background: rgba(91,108,249,0.2); color: #5b6cf9; border: 1px solid rgba(91,108,249,0.4); }
+        .badge-full { background: rgba(192,132,252,0.2); color: #c084fc; border: 1px solid rgba(192,132,252,0.4); }
+        .badge-front { background: rgba(34,197,94,0.2); color: #22c55e; border: 1px solid rgba(34,197,94,0.4); }
+        .badge-back { background: rgba(251,146,60,0.2); color: #fb923c; border: 1px solid rgba(251,146,60,0.4); }
+
+        /* КОМАНДА — 5 человек, 3+2 */
+        .team-grid-5 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            width: 100%;
+        }
+        .team-row-top {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            width: 100%;
+        }
+        .team-row-bottom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            width: 60%;
+            margin: 0 auto;
+        }
+        .team-member-new {
+            background: var(--card-bg);
+            padding: 1.2rem;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .team-member-new:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--accent);
+            transform: translateY(-6px);
+        }
+        .team-member-new img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.8rem;
+            border: 3px solid var(--accent);
+        }
+        .team-member-new .member-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; color: var(--text); }
+
+        /* ИЗМЕНЕНИЯ С 1 СЕМЕСТРА */
+        .changes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            width: 100%;
+        }
+        .change-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.3rem 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+        .change-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.04); }
+        .change-emoji { font-size: 1.8rem; flex-shrink: 0; }
+        .change-title { font-weight: 700; font-size: 0.95rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.3rem; }
+        .change-card p { font-size: 0.88rem; margin: 0; line-height: 1.4; }
+
+        /* ВОЗМОЖНОСТИ ПЛАТФОРМЫ */
+        .features-platform-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            width: 100%;
+        }
+        .platform-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        .platform-card:hover { border-color: var(--accent); transform: translateY(-6px); background: rgba(255,255,255,0.05); }
+        .platform-card .emoji { font-size: 2.5rem; margin-bottom: 0.8rem; display: block; }
+        .platform-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+        .platform-card p { font-size: 0.9rem; margin: 0; line-height: 1.4; }
+
+        /* KINESCOPE СЛАЙД */
+        .kinescope-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            width: 100%;
+            align-items: center;
+        }
+        .kinescope-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 87, 34, 0.15);
+            border: 1px solid rgba(255, 87, 34, 0.3);
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #ff7043;
+            margin-bottom: 1rem;
+        }
+        .kinescope-features { display: flex; flex-direction: column; gap: 0.8rem; }
+        .k-row {
+            display: flex; gap: 0.8rem; align-items: flex-start;
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 10px; padding: 0.9rem 1rem;
+            transition: all 0.3s ease;
+        }
+        .k-row:hover { border-color: #ff7043; background: rgba(255,112,67,0.06); }
+        .k-icon { font-size: 1.4rem; flex-shrink: 0; }
+        .k-text-title { font-weight: 700; font-size: 0.9rem; color: #ff7043; }
+        .k-text p { font-size: 0.85rem; margin: 0; line-height: 1.3; color: var(--text-gray); }
+        .vs-box {
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+            padding: 1.5rem; text-align: center;
+        }
+        .vs-box h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); margin-bottom: 1rem; }
+        .vs-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; font-size: 0.88rem; }
+        .vs-old { color: #ef4444; text-decoration: line-through; }
+        .vs-new { color: #22c55e; font-weight: 700; }
+        .vs-arrow { color: var(--text-gray); }
+
+        /* ЮКАССА СЛАЙД */
+        .yukassa-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            width: 100%;
+            align-items: start;
+        }
+        .yukassa-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; padding: 1.5rem;
+        }
+        .yukassa-card h3 { font-size: 1rem; color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .yukassa-card p { font-size: 0.9rem; line-height: 1.5; }
+        .warning-card {
+            border-color: rgba(251,146,60,0.4) !important;
+            background: rgba(251,146,60,0.05) !important;
+        }
+        .warning-card h3 { color: #fb923c !important; }
+        .info-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+        .info-list li { font-size: 0.88rem; color: var(--text-gray); display: flex; gap: 0.5rem; align-items: flex-start; }
+        .info-list li::before { content: "•"; color: var(--accent); font-weight: 900; }
+
+        /* АРХИТЕКТУРА БЭКЕНДА */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            width: 100%;
+        }
+        .arch-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 12px; padding: 1.1rem; text-align: center;
+            transition: all 0.3s ease;
+        }
+        .arch-card:hover { border-color: var(--accent); background: rgba(91,108,249,0.08); transform: translateY(-4px); }
+        .arch-card .arch-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .arch-card .arch-name { font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem; }
+        .arch-card .arch-ver { font-size: 0.78rem; color: var(--accent); }
+
+        /* ФРОНТЕНД СЛАЙД */
+        .frontend-compare {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            width: 100%;
+        }
+        .fe-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; padding: 1.5rem; text-align: center;
+        }
+        .fe-old { border-color: rgba(239,68,68,0.3); }
+        .fe-old h3 { color: #ef4444; }
+        .fe-new { border-color: rgba(34,197,94,0.4); background: rgba(34,197,94,0.04); }
+        .fe-new h3 { color: #22c55e; }
+        .fe-arrow { font-size: 2.5rem; color: var(--accent); text-align: center; }
+        .fe-list { list-style: none; padding: 0; margin: 0.8rem 0 0; display: flex; flex-direction: column; gap: 0.4rem; }
+        .fe-list li { font-size: 0.88rem; color: var(--text-gray); }
+
+        /* АУТЕНТИФИКАЦИЯ */
+        .auth-flow {
+            display: flex; gap: 0.8rem; align-items: center;
+            justify-content: center; flex-wrap: wrap; width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        .auth-step {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 12px; padding: 0.8rem 1rem; text-align: center;
+            font-size: 0.88rem; font-weight: 600; min-width: 110px;
+            transition: all 0.3s ease;
+        }
+        .auth-step:hover { border-color: var(--accent); }
+        .auth-arrow { color: var(--accent); font-size: 1.3rem; }
+        .auth-methods-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1rem; width: 100%;
+        }
+        .auth-method {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.2rem; text-align: center;
+            transition: all 0.3s ease;
+        }
+        .auth-method:hover { border-color: var(--accent); transform: translateY(-4px); }
+        .auth-method .am-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .auth-method .am-title { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
+        .auth-method p { font-size: 0.82rem; margin: 0; }
+
+        /* БЕТА-ЗАПУСК */
+        .beta-launch {
+            text-align: center; width: 100%;
+        }
+        .beta-badge {
+            display: inline-block; background: rgba(34,197,94,0.15);
+            border: 1px solid rgba(34,197,94,0.4); color: #22c55e;
+            padding: 6px 18px; border-radius: 20px; font-size: 0.85rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .beta-info {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem; margin-top: 1.5rem; width: 100%;
+        }
+        .beta-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.3rem; text-align: center;
+            transition: all 0.3s ease;
+        }
+        .beta-card:hover { border-color: #22c55e; transform: translateY(-4px); }
+        .beta-card .beta-emoji { font-size: 2rem; margin-bottom: 0.6rem; }
+        .beta-card h4 { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
+        .beta-card p { font-size: 0.85rem; margin: 0; }
+
+        /* ПЛАНЫ НА БУДУЩЕЕ */
+        .future-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem; width: 100%; margin-top: 0.5rem;
+        }
+        .future-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 16px; padding: 1.4rem; text-align: center;
+            transition: all 0.4s ease; position: relative; overflow: hidden;
+        }
+        .future-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, #5b6cf9, #c084fc);
+        }
+        .future-card:hover { transform: translateY(-8px); border-color: var(--accent); background: rgba(91,108,249,0.06); }
+        .future-card .future-num { font-size: 2rem; font-weight: 800; color: var(--accent); opacity: 0.3; margin-bottom: 0.3rem; }
+        .future-card .future-emoji { font-size: 2rem; margin-bottom: 0.6rem; }
+        .future-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+        .future-card p { font-size: 0.83rem; margin: 0; line-height: 1.4; }
+
+        /* МОНИТОРИНГ */
+        .monitoring-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem; width: 100%;
+        }
+        .mon-card {
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.3rem; text-align: center;
+            transition: all 0.3s ease;
+        }
+        .mon-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+        .mon-card .mon-icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
+        .mon-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
+        .mon-card p { font-size: 0.85rem; margin: 0; }
+
+        /* КОМАНДА — 5 человек узкая версия */
+        @media (max-width: 900px) {
+            .team-row-top { grid-template-columns: repeat(2, 1fr); }
+            .team-row-bottom { width: 100%; }
+            .arch-grid { grid-template-columns: repeat(2, 1fr); }
+            .frontend-compare { grid-template-columns: 1fr; }
+            .fe-arrow { transform: rotate(90deg); }
+            .future-grid { grid-template-columns: repeat(2, 1fr); }
+            .kinescope-layout { grid-template-columns: 1fr; }
+            .yukassa-layout { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
@@ -28,257 +334,414 @@
 
 <main class="slides-container">
 
-    <!-- СЛАЙД 1 -->
-    <section class="slide slide-hero">
+    <!-- СЛАЙД 1: ТИТУЛЬНЫЙ -->
+    <section class="slide slide-hero active">
         <div class="slide-content">
             <h1 class="reveal-text stagger-text">HSSE<br><span class="gradient-text">EDUCATION</span><br>PLATFORM</h1>
-            <p class="subtitle reveal-text" style="transition-delay: 0.2s;">Платформа нового поколения для обучения</p>
-
+            <p class="subtitle reveal-text" style="transition-delay: 0.2s;">Образовательная платформа нового поколения</p>
             <div class="team-intro reveal-text" style="transition-delay: 0.4s;">
-                <p><strong>КОМАНДА</strong></p>
-                <p>Максим Вершинин • Матвей Жихарев<br>Артём Смирнов • Хабибулло Турсункулов</p>
+                <p><strong>2 СЕМЕСТР — ОБНОВЛЁННАЯ ВЕРСИЯ</strong></p>
+                <p>Полный рефакторинг · Новые технологии · Бета-запуск</p>
             </div>
         </div>
     </section>
 
-    <!-- СЛАЙД 2: О ПРОЕКТЕ -->
+    <!-- СЛАЙД 2: КОМАНДА -->
     <section class="slide">
         <div class="slide-content">
-            <h2 class="reveal-text">Спрос</h2>
-            <div class="grid-features-compact">
-                <div class="card-compact reveal-card card-scale-animation blur-in">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="18" stroke="#5b6cf9" stroke-width="2"/>
-                            <path d="M20 10V20M20 20L26 14" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+            <h2 class="reveal-text">Команда проекта</h2>
+            <div class="team-grid-5">
+                <div class="team-row-top">
+                    <div class="team-member-new reveal-card team-stagger-animation" style="transition-delay: 0s;">
+                        <img src="images/team-member-1.jpg" alt="Максим Вершинин">
+                        <div class="member-name">Максим Вершинин</div>
+                        <div style="display:flex;gap:4px;justify-content:center;flex-wrap:wrap;margin-top:4px;">
+                            <span class="badge badge-lead">TeamLead</span>
+                            <span class="badge badge-full">FullStack</span>
+                        </div>
                     </div>
-                    <h3>Экспертный контент</h3>
-                    <p>Знания практиков и экспертов, собранные в структурированные курсы от профессионалов отрасли.</p>
+                    <div class="team-member-new reveal-card team-stagger-animation" style="transition-delay: 0.1s;">
+                        <img src="images/team-member-2.jpg" alt="Матвей Жихарев">
+                        <div class="member-name">Матвей Жихарев</div>
+                        <div style="margin-top:4px;"><span class="badge badge-full">FullStack</span></div>
+                    </div>
+                    <div class="team-member-new reveal-card team-stagger-animation" style="transition-delay: 0.2s;">
+                        <img src="images/team-member-3.jpg" alt="Артём Лепёшкин">
+                        <div class="member-name">Артём Лепёшкин</div>
+                        <div style="margin-top:4px;"><span class="badge badge-front">Frontend</span></div>
+                    </div>
                 </div>
-                <div class="card-compact reveal-card card-scale-animation blur-in" style="transition-delay: 0.1s;">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 12H32V32H8V12Z" stroke="#5b6cf9" stroke-width="2"/>
-                            <path d="M12 8V12M20 8V12M28 8V12" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
+                <div class="team-row-bottom">
+                    <div class="team-member-new reveal-card team-stagger-animation" style="transition-delay: 0.3s;">
+                        <img src="images/team-member-4.jpg" alt="Хабибулло Турсункулов">
+                        <div class="member-name">Хабибулло Турсункулов</div>
+                        <div style="margin-top:4px;"><span class="badge badge-full">FullStack</span></div>
                     </div>
-                    <h3>Один источник истины</h3>
-                    <p>Вместо разрозненных форумов и видео — единая платформа с проверенной информацией.</p>
-                </div>
-                <div class="card-compact reveal-card card-scale-animation blur-in" style="transition-delay: 0.2s;">
-                    <div class="card-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="8" stroke="#5b6cf9" stroke-width="2"/>
-                            <circle cx="28" cy="12" r="8" stroke="#5b6cf9" stroke-width="2"/>
-                            <circle cx="20" cy="28" r="8" stroke="#5b6cf9" stroke-width="2"/>
-                            <path d="M16 16L24 24M24 16L16 24" stroke="#5b6cf9" stroke-width="1.5"/>
-                        </svg>
+                    <div class="team-member-new reveal-card team-stagger-animation" style="transition-delay: 0.4s;">
+                        <img src="images/team-member-5.jpg" alt="Владислав Алиев">
+                        <div class="member-name">Владислав Алиев</div>
+                        <div style="margin-top:4px;"><span class="badge badge-back">Backend</span></div>
                     </div>
-                    <h3>Масштабируемость</h3>
-                    <p>От одного направления — к полной экосистеме курсов по всем сложным техническим и профессиональным навыкам.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЛАЙД 3 -->
+    <!-- СЛАЙД 3: ЧТО ИЗМЕНИЛОСЬ -->
     <section class="slide">
         <div class="slide-content">
-            <h2 class="reveal-text">Наше предложение: Платформа</h2>
-            <div class="features-list-compact">
-                <div class="feature-row-compact reveal-card feature-slide-in">
-                    <div class="icon-small">
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="8" y="8" width="34" height="26" stroke="#5b6cf9" stroke-width="2" rx="2"/>
-                            <path d="M12 12L25 22L38 12" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="text-box">
-                        <div class="feature-title-small">Структурированные курсы</div>
-                        <p>От экспертов, разложено по полочкам.</p>
+            <h2 class="reveal-text">Что изменилось с 1 семестра</h2>
+            <div class="changes-grid">
+                <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.0s;">
+                    <div class="change-emoji">🔄</div>
+                    <div>
+                        <div class="change-title">Полный рефакторинг</div>
+                        <p>Переписали платформу с нуля — и бэкенд, и фронтенд. Новая архитектура, новый стек.</p>
                     </div>
                 </div>
-                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.1s;">
-                    <div class="icon-small">
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 8C16.7 8 10 14.7 10 23C10 31.3 16.7 38 25 38C33.3 38 40 31.3 40 23C40 14.7 33.3 8 25 8Z" stroke="#5b6cf9" stroke-width="2"/>
-                            <circle cx="25" cy="23" r="3" fill="#5b6cf9"/>
-                        </svg>
-                    </div>
-                    <div class="text-box">
-                        <div class="feature-title-small">Защита контента</div>
-                        <p>Шифрование, потоковая передача, ограничения по IP.</p>
+                <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.1s;">
+                    <div class="change-emoji">⚛️</div>
+                    <div>
+                        <div class="change-title">Vue.js → React</div>
+                        <p>Мигрировали фронтенд на React. Минималистичный современный дизайн.</p>
                     </div>
                 </div>
-                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.2s;">
-                    <div class="icon-small">
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 20L20 28L38 10" stroke="#5b6cf9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="text-box">
-                        <div class="feature-title-small">Прогресс обучения</div>
-                        <p>Последовательное прохождение, тесты и сертификация.</p>
+                <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.2s;">
+                    <div class="change-emoji">🎬</div>
+                    <div>
+                        <div class="change-title">Kinescope вместо стриминга</div>
+                        <p>Отказались от собственного видеосервера. Внедрили Kinescope для хостинга и защиты видео.</p>
                     </div>
                 </div>
-                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.3s;">
-                    <div class="icon-small">
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 38H38M25 8L8 32H42L25 8Z" stroke="#5b6cf9" stroke-width="2" stroke-linejoin="round"/>
-                            <circle cx="25" cy="25" r="2" fill="#5b6cf9"/>
-                        </svg>
+                <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.3s;">
+                    <div class="change-emoji">💳</div>
+                    <div>
+                        <div class="change-title">Биллинг ЮКасса</div>
+                        <p>Интегрировали платёжный шлюз. Пока тестовые платежи — реальные деньги требуют кассы.</p>
                     </div>
-                    <div class="text-box">
-                        <div class="feature-title-small">Масштабируемость</div>
-                        <p>От одного курса к множеству по любым направлениям.</p>
+                </div>
+                <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.4s;">
+                    <div class="change-emoji">📧</div>
+                    <div>
+                        <div class="change-title">Email-подтверждение</div>
+                        <p>Регистрация теперь через подтверждение почты. Полный auth-флоу с токенами.</p>
+                    </div>
+                </div>
+                <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.5s;">
+                    <div class="change-emoji">🎯</div>
+                    <div>
+                        <div class="change-title">Один курс вместо мультикурса</div>
+                        <p>Фокус на качество single-курса. Рабочая бета важнее амбициозного MVP.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЛАЙД 4: СТЕК ТЕХНОЛОГИЙ (РАСШИРЕННЫЙ) -->
+    <!-- СЛАЙД 4: ВОЗМОЖНОСТИ ПЛАТФОРМЫ -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Возможности платформы</h2>
+            <div class="features-platform-grid">
+                <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.0s;">
+                    <span class="emoji">📚</span>
+                    <h3>Конспекты</h3>
+                    <p>Структурированные текстовые материалы с поддержкой Markdown, изображений и файлов.</p>
+                </div>
+                <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.1s;">
+                    <span class="emoji">🎥</span>
+                    <h3>Видеолекции</h3>
+                    <p>Защищённый стриминг через Kinescope с DRM. Никаких прямых ссылок на скачивание.</p>
+                </div>
+                <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.2s;">
+                    <span class="emoji">✅</span>
+                    <h3>Тесты</h3>
+                    <p>Проверка знаний с вопросами и вариантами ответов. Автоматическая проверка результатов.</p>
+                </div>
+                <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.3s;">
+                    <span class="emoji">📊</span>
+                    <h3>Прогресс обучения</h3>
+                    <p>Трекинг прохождения блоков. Студент видит что пройдено, что осталось.</p>
+                </div>
+                <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.4s;">
+                    <span class="emoji">🔐</span>
+                    <h3>Доступ по оплате</h3>
+                    <p>Биллинг через ЮКасса. Контент открывается только после оплаты курса.</p>
+                </div>
+                <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.5s;">
+                    <span class="emoji">🛠️</span>
+                    <h3>Админ-панель</h3>
+                    <p>Полное управление контентом: блоки, статьи, тесты, видео, пользователи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 5: СТЕК ТЕХНОЛОГИЙ -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="reveal-text">Стек технологий</h2>
             <div class="tech-grid-compact">
-                <!-- Ряд 1 -->
                 <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.0s;">
                     <img src="images/logo-java.png" alt="Java">
-                    <div class="tech-label">Java</div>
+                    <div class="tech-label">Java 17</div>
                 </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.15s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.1s;">
                     <img src="images/logo-spring.png" alt="Spring">
-                    <div class="tech-label">Spring</div>
+                    <div class="tech-label">Spring Boot</div>
                 </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.3s;">
-                    <img src="images/logo-maven.png" alt="Maven">
-                    <div class="tech-label">Maven</div>
-                </div>
-
-                <!-- Ряд 2 -->
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.45s;">
-                    <img src="images/logo-vue.png" alt="Vue.js">
-                    <div class="tech-label">Vue.js</div>
-                </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.6s;">
-                    <img src="images/logo-js.png" alt="JavaScript">
-                    <div class="tech-label">JavaScript</div>
-                </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.75s;">
-                    <img src="images/logo-swagger.png" alt="Swagger">
-                    <div class="tech-label">Swagger</div>
-                </div>
-
-                <!-- Ряд 3 -->
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.9s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.2s;">
                     <img src="images/logo-postgresql.png" alt="PostgreSQL">
                     <div class="tech-label">PostgreSQL</div>
                 </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 1.05s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.3s;">
                     <img src="images/logo-minio.png" alt="MinIO">
                     <div class="tech-label">MinIO</div>
                 </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 1.2s;">
-                    <img src="images/logo-postman.png" alt="Postman">
-                    <div class="tech-label">Postman</div>
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.4s;">
+                    <img src="images/logo-js.png" alt="React">
+                    <div class="tech-label">React</div>
                 </div>
-
-                <!-- Ряд 4 -->
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 1.35s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.5s;">
                     <img src="images/logo-docker.png" alt="Docker">
                     <div class="tech-label">Docker</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- СЛАЙД 5 -->
-    <section class="slide">
-        <div class="slide-content">
-            <h2 class="reveal-text">Аутентификация VK</h2>
-            <div class="feature-highlight-compact reveal-card feature-glow-animation pulse-border">
-                <img src="images/logo-vk.png" alt="VK" class="feature-icon-small">
-                <h3 style="margin-top: 20px;">VK OAuth</h3>
-                <p>Простая регистрация в один клик.<br>Удобно для пользователей, безопасно для платформы.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- СЛАЙД 6 -->
-    <section class="slide">
-        <div class="slide-content">
-            <h2 class="reveal-text">Собственный streaming</h2>
-            <div class="features-list-compact">
-                <div class="feature-row-compact reveal-card feature-slide-in">
-                    <div class="icon-small shake-icon">
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10 12L25 22L10 32V12Z" fill="#5b6cf9"/>
-                            <rect x="28" y="12" width="10" height="20" fill="#5b6cf9"/>
-                        </svg>
-                    </div>
-                    <div class="text-box">
-                        <div class="feature-title-small">Потоковая передача</div>
-                        <p>Видео не загружается целиком, идет потоком.</p>
-                    </div>
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.6s;">
+                    <img src="images/logo-swagger.png" alt="Swagger">
+                    <div class="tech-label">OpenAPI</div>
                 </div>
-                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.1s;">
-                    <div class="icon-small shake-icon">
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15 12C12 12 10 14 10 17V33C10 36 12 38 15 38H35C38 38 40 36 40 33V17C40 14 38 12 35 12H15Z" stroke="#5b6cf9" stroke-width="2"/>
-                            <path d="M20 24L30 24" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="text-box">
-                        <div class="feature-title-small">Шифрование трафика</div>
-                        <p>HTTPS + токены. Защита от перехвата и копирования.</p>
-                    </div>
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.7s;">
+                    <img src="images/logo-maven.png" alt="Maven">
+                    <div class="tech-label">Maven</div>
                 </div>
-                <div class="feature-row-compact reveal-card feature-slide-in" style="transition-delay: 0.2s;">
-                    <div class="icon-small shake-icon">
-                        <svg width="50" height="50" viewBox="0 0 50 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25 8L32 12V25C32 32 25 40 25 40C25 40 18 32 18 25V12L25 8Z" stroke="#5b6cf9" stroke-width="2" stroke-linejoin="round"/>
-                            <path d="M22 24L25 27L30 20" stroke="#5b6cf9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div class="text-box">
-                        <div class="feature-title-small">Умная оптимизация</div>
-                        <p>Адаптивное качество под скорость интернета.</p>
-                    </div>
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.8s;">
+                    <img src="images/logo-postman.png" alt="Postman">
+                    <div class="tech-label">Postman</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЛАЙД 7 -->
+    <!-- СЛАЙД 6: АРХИТЕКТУРА БЭКЕНДА -->
     <section class="slide">
         <div class="slide-content">
-            <h2 class="reveal-text">Дизайн платформы</h2>
-            <div class="design-showcase-compact">
-                <div class="design-block-compact white reveal-card design-rotate-animation parallax-card">
-                    <h3 style="color: black;">Белый фон</h3>
-                    <p style="color: #444;">Чистота и фокус.</p>
+            <h2 class="reveal-text">Архитектура бэкенда</h2>
+            <div class="arch-grid">
+                <div class="arch-card reveal-card" style="transition-delay: 0.0s;">
+                    <div class="arch-icon">☕</div>
+                    <div class="arch-name">Java + Spring Boot</div>
+                    <div class="arch-ver">17 + 3.5.6</div>
                 </div>
-                <div class="design-block-compact dark reveal-card design-rotate-animation parallax-card" style="transition-delay: 0.2s;">
-                    <h3>Контраст</h3>
-                    <p>Максимальная читаемость.</p>
+                <div class="arch-card reveal-card" style="transition-delay: 0.1s;">
+                    <div class="arch-icon">🗄️</div>
+                    <div class="arch-name">PostgreSQL + Flyway</div>
+                    <div class="arch-ver">миграции схемы</div>
                 </div>
-                <div class="design-block-compact glass reveal-card design-rotate-animation parallax-card" style="transition-delay: 0.4s;">
-                    <h3>UX/UI</h3>
-                    <p>Интуитивный интерфейс.</p>
+                <div class="arch-card reveal-card" style="transition-delay: 0.2s;">
+                    <div class="arch-icon">📦</div>
+                    <div class="arch-name">MinIO</div>
+                    <div class="arch-ver">S3-хранилище файлов</div>
                 </div>
-                <div class="design-block-compact white reveal-card design-rotate-animation parallax-card" style="transition-delay: 0.4s;">
-                    <img src="images/logo.svg" alt="" width="250px">
+                <div class="arch-card reveal-card" style="transition-delay: 0.3s;">
+                    <div class="arch-icon">📈</div>
+                    <div class="arch-name">Prometheus + OTEL</div>
+                    <div class="arch-ver">метрики и трейсинг</div>
+                </div>
+                <div class="arch-card reveal-card" style="transition-delay: 0.4s;">
+                    <div class="arch-icon">🏗️</div>
+                    <div class="arch-name">Слои: Controller</div>
+                    <div class="arch-ver">REST API + OpenAPI</div>
+                </div>
+                <div class="arch-card reveal-card" style="transition-delay: 0.5s;">
+                    <div class="arch-icon">⚙️</div>
+                    <div class="arch-name">Service Layer</div>
+                    <div class="arch-ver">бизнес-логика</div>
+                </div>
+                <div class="arch-card reveal-card" style="transition-delay: 0.6s;">
+                    <div class="arch-icon">🔗</div>
+                    <div class="arch-name">Repository (JPA)</div>
+                    <div class="arch-ver">доступ к данным</div>
+                </div>
+                <div class="arch-card reveal-card" style="transition-delay: 0.7s;">
+                    <div class="arch-icon">🧪</div>
+                    <div class="arch-name">Testcontainers</div>
+                    <div class="arch-ver">интеграц. тесты</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЛАЙД 8: ИНТЕРФЕЙС (БЕЗ СКОБОК И НОВЫЙ РАЗМЕР) -->
+    <!-- СЛАЙД 7: АУТЕНТИФИКАЦИЯ -->
     <section class="slide">
         <div class="slide-content">
-            <h2 class="reveal-text">Интерфейс</h2>
+            <h2 class="reveal-text">Аутентификация</h2>
+            <div class="auth-flow reveal-card" style="transition-delay: 0.1s;">
+                <div class="auth-step">Регистрация</div>
+                <div class="auth-arrow">→</div>
+                <div class="auth-step">Email токен</div>
+                <div class="auth-arrow">→</div>
+                <div class="auth-step">Подтверждение</div>
+                <div class="auth-arrow">→</div>
+                <div class="auth-step">JWT выдан</div>
+                <div class="auth-arrow">→</div>
+                <div class="auth-step">Доступ</div>
+            </div>
+            <div class="auth-methods-grid">
+                <div class="auth-method reveal-card" style="transition-delay: 0.2s;">
+                    <div class="am-icon">🔑</div>
+                    <div class="am-title">JWT + Spring Security</div>
+                    <p>Токены доступа с ограниченным сроком жизни. OAuth2 Resource Server.</p>
+                </div>
+                <div class="auth-method reveal-card" style="transition-delay: 0.3s;">
+                    <div class="am-icon">📧</div>
+                    <div class="am-title">Email-подтверждение</div>
+                    <p>Новая функция 2 семестра. Токен подтверждения отправляется на почту.</p>
+                </div>
+                <div class="auth-method reveal-card" style="transition-delay: 0.4s;">
+                    <div class="am-icon">💙</div>
+                    <div class="am-title">VK OAuth</div>
+                    <p>Вход через аккаунт ВКонтакте. Поддержка VkAuthState и безопасный колбэк.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 8: KINESCOPE -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Видеохостинг: Kinescope</h2>
+            <div class="kinescope-layout">
+                <div class="kinescope-features reveal-card" style="transition-delay: 0.1s;">
+                    <div class="kinescope-badge">
+                        🎬 Внешний сервис
+                    </div>
+                    <div class="k-row">
+                        <div class="k-icon">🛡️</div>
+                        <div class="k-text">
+                            <div class="k-text-title">DRM-защита</div>
+                            <p>Widevine/FairPlay шифрование. Видео нельзя скачать или перехватить.</p>
+                        </div>
+                    </div>
+                    <div class="k-row">
+                        <div class="k-icon">⚡</div>
+                        <div class="k-text">
+                            <div class="k-text-title">CDN + адаптивное качество</div>
+                            <p>Автоматически подстраивает качество под скорость интернета пользователя.</p>
+                        </div>
+                    </div>
+                    <div class="k-row">
+                        <div class="k-icon">🔗</div>
+                        <div class="k-text">
+                            <div class="k-text-title">Webhook-интеграция</div>
+                            <p>Уведомления о статусах видео. Контроллеры KinescopeDrm и KinescopeWebhook.</p>
+                        </div>
+                    </div>
+                    <div class="k-row">
+                        <div class="k-icon">💾</div>
+                        <div class="k-text">
+                            <div class="k-text-title">Нет нагрузки на наш сервер</div>
+                            <p>Стриминг идёт напрямую через CDN Kinescope, не через наш бэкенд.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vs-box reveal-card" style="transition-delay: 0.3s;">
+                    <h4>Почему отказались от своего стриминга</h4>
+                    <div class="vs-row">
+                        <span class="vs-old">Свой streaming-сервер</span>
+                        <span class="vs-arrow">→</span>
+                        <span class="vs-new">Kinescope CDN</span>
+                    </div>
+                    <div class="vs-row">
+                        <span class="vs-old">Нет DRM</span>
+                        <span class="vs-arrow">→</span>
+                        <span class="vs-new">Widevine DRM</span>
+                    </div>
+                    <div class="vs-row">
+                        <span class="vs-old">Нагрузка на нас</span>
+                        <span class="vs-arrow">→</span>
+                        <span class="vs-new">Offload в CDN</span>
+                    </div>
+                    <div class="vs-row">
+                        <span class="vs-old">Сложная инфра</span>
+                        <span class="vs-arrow">→</span>
+                        <span class="vs-new">API-интеграция</span>
+                    </div>
+                    <div class="vs-row">
+                        <span class="vs-old">Нет аналитики</span>
+                        <span class="vs-arrow">→</span>
+                        <span class="vs-new">Дашборд Kinescope</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 9: ЮКАССА -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Биллинг: ЮКасса</h2>
+            <div class="yukassa-layout">
+                <div class="yukassa-card reveal-card" style="transition-delay: 0.1s;">
+                    <h3>Что реализовано</h3>
+                    <ul class="info-list">
+                        <li>Интеграция с API ЮКасса через Spring WebFlux WebClient</li>
+                        <li>Создание платежей и обработка webhook-уведомлений</li>
+                        <li>Сущность Payment в базе данных</li>
+                        <li>Доступ к курсу открывается после успешного платежа</li>
+                        <li>Работает в тестовом режиме ЮКасса — реальные деньги не списываются</li>
+                    </ul>
+                </div>
+                <div class="yukassa-card warning-card reveal-card" style="transition-delay: 0.2s;">
+                    <h3>⚠️ Почему нет реальных платежей</h3>
+                    <p style="margin-bottom: 1rem;">Для приёма реальных платежей в России необходима онлайн-касса (54-ФЗ). Это физическое устройство или облачный сервис, который фискализирует каждый платёж и отправляет чек в ФНС.</p>
+                    <ul class="info-list">
+                        <li>Стоимость подключения облачной кассы — от ~3000 ₽/мес</li>
+                        <li>Требуется договор с оператором фискальных данных (ОФД)</li>
+                        <li>Необходима регистрация ИП или ООО</li>
+                        <li>Планируем решить этот вопрос при коммерческом запуске</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 10: ФРОНТЕНД -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Фронтенд: переход на React</h2>
+            <div class="frontend-compare">
+                <div class="fe-card fe-old reveal-card" style="transition-delay: 0.1s;">
+                    <h3>Vue.js</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">1 семестр</p>
+                    <ul class="fe-list">
+                        <li>Options API</li>
+                        <li>Vuex state management</li>
+                        <li>Прежний дизайн</li>
+                        <li>Переписан с нуля</li>
+                    </ul>
+                </div>
+                <div class="fe-arrow reveal-card" style="transition-delay: 0.2s;">→</div>
+                <div class="fe-card fe-new reveal-card" style="transition-delay: 0.3s;">
+                    <h3>React</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #22c55e;">2 семестр</p>
+                    <ul class="fe-list">
+                        <li>Functional components + Hooks</li>
+                        <li>Минималистичный современный дизайн</li>
+                        <li>Переписан вместе с бэком</li>
+                        <li>Летом — дизайнер и мультикурс UI</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="reveal-card" style="transition-delay:0.4s;margin-top:1rem;background:rgba(91,108,249,0.05);border:1px solid rgba(91,108,249,0.2);border-radius:12px;padding:1rem 1.5rem;text-align:center;max-width:700px;width:100%;">
+                <p style="font-size:0.9rem;">💡 Текущий дизайн — временный. <strong style="color:var(--accent);">Летом 2026</strong> планируем заказать полноценный макет у дизайнера для мультикурсовой платформы.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 11: ИНТЕРФЕЙС -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Интерфейс платформы</h2>
             <div class="screenshots-grid-compact">
                 <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift">
                     <img src="images/screenshot-3.png" alt="Главная">
@@ -320,61 +783,88 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 9 -->
+    <!-- СЛАЙД 12: БЕТА-ЗАПУСК -->
+    <section class="slide">
+        <div class="slide-content">
+            <div class="beta-launch">
+                <div class="beta-badge reveal-text">✅ Запущено в конце апреля 2026</div>
+                <h2 class="reveal-text" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">Бета-версия платформы</h2>
+                <p class="reveal-text" style="transition-delay: 0.2s; max-width: 700px; margin: 0 auto; font-size: 1rem;">
+                    Первый рабочий курс — <strong style="color: var(--accent);">«Гармонический анализ»</strong> от нашего преподавателя. Студенты уже могут учиться на платформе.
+                </p>
+                <div class="beta-info">
+                    <div class="beta-card reveal-card" style="transition-delay: 0.3s;">
+                        <div class="beta-emoji">📖</div>
+                        <h4>Конспекты</h4>
+                        <p>Структурированные текстовые материалы с поддержкой Markdown.</p>
+                    </div>
+                    <div class="beta-card reveal-card" style="transition-delay: 0.4s;">
+                        <div class="beta-emoji">🎥</div>
+                        <h4>Видеолекции</h4>
+                        <p>Защищённые лекции преподавателя через Kinescope DRM.</p>
+                    </div>
+                    <div class="beta-card reveal-card" style="transition-delay: 0.5s;">
+                        <div class="beta-emoji">📝</div>
+                        <h4>Тесты</h4>
+                        <p>Проверка знаний с автоматической проверкой результатов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЛАЙД 13: ПЛАНЫ НА БУДУЩЕЕ -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="reveal-text">Планы на будущее</h2>
-            <div class="roadmap-list-compact">
-                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up">Курсы по разным направлениям</div>
-                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.1s;">Мобильное приложение (iOS/Android)</div>
-                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.2s;">DRM технологии и Watermarking</div>
-                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.3s;">Полноценный биллинг и подписки</div>
-                <div class="roadmap-item-compact reveal-text roadmap-line-animation counter-up" style="transition-delay: 0.4s;">Прямые эфиры и вебинары</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- СЛАЙД 10 -->
-    <section class="slide">
-        <div class="slide-content">
-            <h2 class="reveal-text">Команда проекта</h2>
-            <div class="team-grid-compact">
-                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect">
-                    <img src="images/team-member-1.jpg" alt="Максим Вершинин">
-                    <div class="member-name">Максим Вершинин</div>
-                    <div class="member-role">TeamLead</div>
+            <div class="future-grid">
+                <div class="future-card reveal-card" style="transition-delay: 0.0s;">
+                    <div class="future-emoji">🤖</div>
+                    <h3>AI-мониторинг</h3>
+                    <p>Внедрить модель машинного обучения для распознавания подозрительного поведения: фрод, попытки обхода защиты.</p>
                 </div>
-                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect" style="transition-delay: 0.1s;">
-                    <img src="images/team-member-2.jpg" alt="Матвей Жихарев">
-                    <div class="member-name">Матвей Жихарев</div>
-                    <div class="member-role">Frontend</div>
+                <div class="future-card reveal-card" style="transition-delay: 0.1s;">
+                    <div class="future-emoji">📱</div>
+                    <h3>Мобильное приложение</h3>
+                    <p>Написать iOS и Android приложение. Учиться с телефона — удобнее, чем с ноутбука.</p>
                 </div>
-                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect" style="transition-delay: 0.2s;">
-                    <img src="images/team-member-3.jpg" alt="Артём Смирнов">
-                    <div class="member-name">Артём Смирнов</div>
-                    <div class="member-role">Backend</div>
+                <div class="future-card reveal-card" style="transition-delay: 0.2s;">
+                    <div class="future-emoji">🏫</div>
+                    <h3>Мультикурсовая платформа</h3>
+                    <p>Выпустить полноценную мультикурсовую платформу в продакшн. Это главная цель на следующий этап.</p>
                 </div>
-                <div class="team-member-compact reveal-pop team-stagger-animation team-hover-effect" style="transition-delay: 0.3s;">
-                    <img src="images/team-member-4.jpg" alt="Хабибулло Турсункулов">
-                    <div class="member-name">Хабибулло Турсункулов</div>
-                    <div class="member-role">Backend</div>
+                <div class="future-card reveal-card" style="transition-delay: 0.3s;">
+                    <div class="future-emoji">👨‍🏫</div>
+                    <h3>Привлечение преподавателей</h3>
+                    <p>Начать искать преподавателей, которые будут вести авторские курсы на нашей платформе.</p>
+                </div>
+                <div class="future-card reveal-card" style="transition-delay: 0.4s;">
+                    <div class="future-emoji">🎨</div>
+                    <h3>Новый UI/UX</h3>
+                    <p>Летом заказываем полноценный макет у дизайнера. Современный и профессиональный интерфейс.</p>
+                </div>
+                <div class="future-card reveal-card" style="transition-delay: 0.5s;">
+                    <div class="future-emoji">💰</div>
+                    <h3>Реальные платежи</h3>
+                    <p>Подключить онлайн-кассу для приёма реальных платежей (54-ФЗ). Полноценный коммерческий запуск.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- СЛАЙД 11 -->
+    <!-- СЛАЙД 14: СПАСИБО + QR -->
     <section class="slide slide-footer">
         <div class="slide-content">
             <h1 class="reveal-text fade-in-scale">Спасибо за внимание!</h1>
             <div class="contacts reveal-pop" style="transition-delay: 0.2s;">
                 <div class="qr-box bounce-in">
-                    <img src="images/qr-code.png" alt="QR Code">
+                    <img src="images/qr-code.png" alt="QR Code — прод платформы">
                 </div>
-                <p style="margin-top: 15px; font-size: 1.3rem;">hsse-platform.com</p>
+                <p style="margin-top: 15px; font-size: 1.3rem;">Сканируй — попади на платформу</p>
+                <p style="margin-top: 6px; font-size: 1rem; color: var(--accent);">Курс «Гармонический анализ» уже доступен</p>
             </div>
-            <p class="reveal-text" style="transition-delay: 0.4s; margin-top: 25px; color: var(--text-gray); font-size: 1rem;">
-                Вопросы? info@hsse-platform.com
+            <p class="reveal-text" style="transition-delay: 0.5s; margin-top: 20px; color: var(--text-gray); font-size: 0.95rem;">
+                Вопросы? Команда HSSE Education
             </p>
         </div>
     </section>
