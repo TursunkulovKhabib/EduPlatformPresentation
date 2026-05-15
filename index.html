@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSSE Platform | Presentation</title>
+    <title>БезВышки | Presentation</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,37 @@
     <link rel="stylesheet" href="css/styles.css">
 
     <style>
-        /* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ НОВЫХ СЛАЙДОВ ===== */
+        /* ===== ЛОГОТИП В УГЛУ ===== */
+        .corner-logo {
+            position: fixed;
+            top: 20px;
+            left: 24px;
+            z-index: 1000;
+            height: 36px;
+            width: auto;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+        .corner-logo:hover { opacity: 1; }
+
+        /* ===== SVG ИКОНКИ ===== */
+        .svg-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+        .svg-icon-lg {
+            width: 48px;
+            height: 48px;
+            display: block;
+            margin: 0 auto 0.8rem;
+        }
+        .svg-icon-xl {
+            width: 56px;
+            height: 56px;
+            display: block;
+            margin: 0 auto 0.8rem;
+        }
 
         /* BADGE ДЛЯ РОЛЕЙ */
         .badge {
@@ -90,7 +120,7 @@
             transition: all 0.3s ease;
         }
         .change-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.04); }
-        .change-emoji { font-size: 1.8rem; flex-shrink: 0; }
+        .change-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; }
         .change-title { font-weight: 700; font-size: 0.95rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.3rem; }
         .change-card p { font-size: 0.88rem; margin: 0; line-height: 1.4; }
 
@@ -110,7 +140,7 @@
             transition: all 0.4s ease;
         }
         .platform-card:hover { border-color: var(--accent); transform: translateY(-6px); background: rgba(255,255,255,0.05); }
-        .platform-card .emoji { font-size: 2.5rem; margin-bottom: 0.8rem; display: block; }
+        .platform-card .icon-wrap { margin-bottom: 0.8rem; display: flex; justify-content: center; }
         .platform-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
         .platform-card p { font-size: 0.9rem; margin: 0; line-height: 1.4; }
 
@@ -143,7 +173,7 @@
             transition: all 0.3s ease;
         }
         .k-row:hover { border-color: #ff7043; background: rgba(255,112,67,0.06); }
-        .k-icon { font-size: 1.4rem; flex-shrink: 0; }
+        .k-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; flex-shrink: 0; margin-top: 2px; }
         .k-text-title { font-weight: 700; font-size: 0.9rem; color: #ff7043; }
         .k-text p { font-size: 0.85rem; margin: 0; line-height: 1.3; color: var(--text-gray); }
         .vs-box {
@@ -178,23 +208,6 @@
         .info-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
         .info-list li { font-size: 0.88rem; color: var(--text-gray); display: flex; gap: 0.5rem; align-items: flex-start; }
         .info-list li::before { content: "•"; color: var(--accent); font-weight: 900; }
-
-        /* АРХИТЕКТУРА БЭКЕНДА */
-        .arch-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            width: 100%;
-        }
-        .arch-card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 12px; padding: 1.1rem; text-align: center;
-            transition: all 0.3s ease;
-        }
-        .arch-card:hover { border-color: var(--accent); background: rgba(91,108,249,0.08); transform: translateY(-4px); }
-        .arch-card .arch-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-        .arch-card .arch-name { font-weight: 700; font-size: 0.9rem; color: var(--text); margin-bottom: 0.3rem; }
-        .arch-card .arch-ver { font-size: 0.78rem; color: var(--accent); }
 
         /* ФРОНТЕНД СЛАЙД */
         .frontend-compare {
@@ -240,7 +253,7 @@
             transition: all 0.3s ease;
         }
         .auth-method:hover { border-color: var(--accent); transform: translateY(-4px); }
-        .auth-method .am-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .auth-method .am-icon { display: flex; justify-content: center; margin-bottom: 0.5rem; }
         .auth-method .am-title { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
         .auth-method p { font-size: 0.82rem; margin: 0; }
 
@@ -265,7 +278,7 @@
             transition: all 0.3s ease;
         }
         .beta-card:hover { border-color: #22c55e; transform: translateY(-4px); }
-        .beta-card .beta-emoji { font-size: 2rem; margin-bottom: 0.6rem; }
+        .beta-card .beta-icon { display: flex; justify-content: center; margin-bottom: 0.6rem; }
         .beta-card h4 { font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.3rem; }
         .beta-card p { font-size: 0.85rem; margin: 0; }
 
@@ -284,31 +297,14 @@
             background: linear-gradient(90deg, #5b6cf9, #c084fc);
         }
         .future-card:hover { transform: translateY(-8px); border-color: var(--accent); background: rgba(91,108,249,0.06); }
-        .future-card .future-num { font-size: 2rem; font-weight: 800; color: var(--accent); opacity: 0.3; margin-bottom: 0.3rem; }
-        .future-card .future-emoji { font-size: 2rem; margin-bottom: 0.6rem; }
+        .future-card .future-icon { display: flex; justify-content: center; margin-bottom: 0.6rem; }
         .future-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
         .future-card p { font-size: 0.83rem; margin: 0; line-height: 1.4; }
-
-        /* МОНИТОРИНГ */
-        .monitoring-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem; width: 100%;
-        }
-        .mon-card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 14px; padding: 1.3rem; text-align: center;
-            transition: all 0.3s ease;
-        }
-        .mon-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .mon-card .mon-icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
-        .mon-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
-        .mon-card p { font-size: 0.85rem; margin: 0; }
 
         /* КОМАНДА — 5 человек узкая версия */
         @media (max-width: 900px) {
             .team-row-top { grid-template-columns: repeat(2, 1fr); }
             .team-row-bottom { width: 100%; }
-            .arch-grid { grid-template-columns: repeat(2, 1fr); }
             .frontend-compare { grid-template-columns: 1fr; }
             .fe-arrow { transform: rotate(90deg); }
             .future-grid { grid-template-columns: repeat(2, 1fr); }
@@ -318,6 +314,9 @@
     </style>
 </head>
 <body>
+
+<!-- ЛОГОТИП В УГЛУ — виден на всех слайдах -->
+<img src="images/logo-bezvyshki.png" alt="БезВышки" class="corner-logo">
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="lightbox">
@@ -337,7 +336,7 @@
     <!-- СЛАЙД 1: ТИТУЛЬНЫЙ -->
     <section class="slide slide-hero active">
         <div class="slide-content">
-            <h1 class="reveal-text stagger-text">HSSE<br><span class="gradient-text">EDUCATION</span><br>PLATFORM</h1>
+            <h1 class="reveal-text stagger-text">БезВышки<br><span class="gradient-text">EDUCATION</span><br>PLATFORM</h1>
             <p class="subtitle reveal-text" style="transition-delay: 0.2s;">Образовательная платформа нового поколения</p>
             <div class="team-intro reveal-text" style="transition-delay: 0.4s;">
                 <p><strong>2 СЕМЕСТР — ОБНОВЛЁННАЯ ВЕРСИЯ</strong></p>
@@ -393,42 +392,54 @@
             <h2 class="reveal-text">Что изменилось с 1 семестра</h2>
             <div class="changes-grid">
                 <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.0s;">
-                    <div class="change-emoji">🔄</div>
+                    <div class="change-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+                    </div>
                     <div>
                         <div class="change-title">Полный рефакторинг</div>
                         <p>Переписали платформу с нуля — и бэкенд, и фронтенд. Новая архитектура, новый стек.</p>
                     </div>
                 </div>
                 <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.1s;">
-                    <div class="change-emoji">⚛️</div>
+                    <div class="change-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+                    </div>
                     <div>
                         <div class="change-title">Vue.js → React</div>
                         <p>Мигрировали фронтенд на React. Минималистичный современный дизайн.</p>
                     </div>
                 </div>
                 <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.2s;">
-                    <div class="change-emoji">🎬</div>
+                    <div class="change-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2"/></svg>
+                    </div>
                     <div>
                         <div class="change-title">Kinescope вместо стриминга</div>
                         <p>Отказались от собственного видеосервера. Внедрили Kinescope для хостинга и защиты видео.</p>
                     </div>
                 </div>
                 <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.3s;">
-                    <div class="change-emoji">💳</div>
+                    <div class="change-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                    </div>
                     <div>
                         <div class="change-title">Биллинг ЮКасса</div>
                         <p>Интегрировали платёжный шлюз. Пока тестовые платежи — реальные деньги требуют кассы.</p>
                     </div>
                 </div>
                 <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.4s;">
-                    <div class="change-emoji">📧</div>
+                    <div class="change-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
                     <div>
                         <div class="change-title">Email-подтверждение</div>
                         <p>Регистрация теперь через подтверждение почты. Полный auth-флоу с токенами.</p>
                     </div>
                 </div>
                 <div class="change-card reveal-card feature-slide-in" style="transition-delay: 0.5s;">
-                    <div class="change-emoji">🎯</div>
+                    <div class="change-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    </div>
                     <div>
                         <div class="change-title">Один курс вместо мультикурса</div>
                         <p>Фокус на качество single-курса. Рабочая бета важнее амбициозного MVP.</p>
@@ -444,32 +455,44 @@
             <h2 class="reveal-text">Возможности платформы</h2>
             <div class="features-platform-grid">
                 <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.0s;">
-                    <span class="emoji">📚</span>
+                    <div class="icon-wrap">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    </div>
                     <h3>Конспекты</h3>
                     <p>Структурированные текстовые материалы с поддержкой Markdown, изображений и файлов.</p>
                 </div>
                 <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.1s;">
-                    <span class="emoji">🎥</span>
+                    <div class="icon-wrap">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2"/></svg>
+                    </div>
                     <h3>Видеолекции</h3>
                     <p>Защищённый стриминг через Kinescope с DRM. Никаких прямых ссылок на скачивание.</p>
                 </div>
                 <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.2s;">
-                    <span class="emoji">✅</span>
+                    <div class="icon-wrap">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
                     <h3>Тесты</h3>
                     <p>Проверка знаний с вопросами и вариантами ответов. Автоматическая проверка результатов.</p>
                 </div>
                 <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.3s;">
-                    <span class="emoji">📊</span>
+                    <div class="icon-wrap">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+                    </div>
                     <h3>Прогресс обучения</h3>
                     <p>Трекинг прохождения блоков. Студент видит что пройдено, что осталось.</p>
                 </div>
                 <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.4s;">
-                    <span class="emoji">🔐</span>
+                    <div class="icon-wrap">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
                     <h3>Доступ по оплате</h3>
                     <p>Биллинг через ЮКасса. Контент открывается только после оплаты курса.</p>
                 </div>
                 <div class="platform-card reveal-card card-scale-animation" style="transition-delay: 0.5s;">
-                    <span class="emoji">🛠️</span>
+                    <div class="icon-wrap">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
                     <h3>Админ-панель</h3>
                     <p>Полное управление контентом: блоки, статьи, тесты, видео, пользователи.</p>
                 </div>
@@ -499,22 +522,26 @@
                     <div class="tech-label">MinIO</div>
                 </div>
                 <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.4s;">
-                    <img src="images/logo-js.png" alt="React">
+                    <img src="images/logo-react.png" alt="React">
                     <div class="tech-label">React</div>
                 </div>
                 <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.5s;">
+                    <img src="images/logo-vite.png" alt="Vite">
+                    <div class="tech-label">Vite</div>
+                </div>
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.6s;">
                     <img src="images/logo-docker.png" alt="Docker">
                     <div class="tech-label">Docker</div>
                 </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.6s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.7s;">
                     <img src="images/logo-swagger.png" alt="Swagger">
                     <div class="tech-label">OpenAPI</div>
                 </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.7s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.8s;">
                     <img src="images/logo-maven.png" alt="Maven">
                     <div class="tech-label">Maven</div>
                 </div>
-                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.8s;">
+                <div class="tech-item-compact reveal-pop tech-flip-animation shimmer-effect" style="transition-delay: 0.9s;">
                     <img src="images/logo-postman.png" alt="Postman">
                     <div class="tech-label">Postman</div>
                 </div>
@@ -522,56 +549,7 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 6: АРХИТЕКТУРА БЭКЕНДА -->
-    <section class="slide">
-        <div class="slide-content">
-            <h2 class="reveal-text">Архитектура бэкенда</h2>
-            <div class="arch-grid">
-                <div class="arch-card reveal-card" style="transition-delay: 0.0s;">
-                    <div class="arch-icon">☕</div>
-                    <div class="arch-name">Java + Spring Boot</div>
-                    <div class="arch-ver">17 + 3.5.6</div>
-                </div>
-                <div class="arch-card reveal-card" style="transition-delay: 0.1s;">
-                    <div class="arch-icon">🗄️</div>
-                    <div class="arch-name">PostgreSQL + Flyway</div>
-                    <div class="arch-ver">миграции схемы</div>
-                </div>
-                <div class="arch-card reveal-card" style="transition-delay: 0.2s;">
-                    <div class="arch-icon">📦</div>
-                    <div class="arch-name">MinIO</div>
-                    <div class="arch-ver">S3-хранилище файлов</div>
-                </div>
-                <div class="arch-card reveal-card" style="transition-delay: 0.3s;">
-                    <div class="arch-icon">📈</div>
-                    <div class="arch-name">Prometheus + OTEL</div>
-                    <div class="arch-ver">метрики и трейсинг</div>
-                </div>
-                <div class="arch-card reveal-card" style="transition-delay: 0.4s;">
-                    <div class="arch-icon">🏗️</div>
-                    <div class="arch-name">Слои: Controller</div>
-                    <div class="arch-ver">REST API + OpenAPI</div>
-                </div>
-                <div class="arch-card reveal-card" style="transition-delay: 0.5s;">
-                    <div class="arch-icon">⚙️</div>
-                    <div class="arch-name">Service Layer</div>
-                    <div class="arch-ver">бизнес-логика</div>
-                </div>
-                <div class="arch-card reveal-card" style="transition-delay: 0.6s;">
-                    <div class="arch-icon">🔗</div>
-                    <div class="arch-name">Repository (JPA)</div>
-                    <div class="arch-ver">доступ к данным</div>
-                </div>
-                <div class="arch-card reveal-card" style="transition-delay: 0.7s;">
-                    <div class="arch-icon">🧪</div>
-                    <div class="arch-name">Testcontainers</div>
-                    <div class="arch-ver">интеграц. тесты</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- СЛАЙД 7: АУТЕНТИФИКАЦИЯ -->
+    <!-- СЛАЙД 6: АУТЕНТИФИКАЦИЯ -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="reveal-text">Аутентификация</h2>
@@ -588,17 +566,23 @@
             </div>
             <div class="auth-methods-grid">
                 <div class="auth-method reveal-card" style="transition-delay: 0.2s;">
-                    <div class="am-icon">🔑</div>
+                    <div class="am-icon">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                    </div>
                     <div class="am-title">JWT + Spring Security</div>
                     <p>Токены доступа с ограниченным сроком жизни. OAuth2 Resource Server.</p>
                 </div>
                 <div class="auth-method reveal-card" style="transition-delay: 0.3s;">
-                    <div class="am-icon">📧</div>
+                    <div class="am-icon">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
                     <div class="am-title">Email-подтверждение</div>
                     <p>Новая функция 2 семестра. Токен подтверждения отправляется на почту.</p>
                 </div>
                 <div class="auth-method reveal-card" style="transition-delay: 0.4s;">
-                    <div class="am-icon">💙</div>
+                    <div class="am-icon">
+                        <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </div>
                     <div class="am-title">VK OAuth</div>
                     <p>Вход через аккаунт ВКонтакте. Поддержка VkAuthState и безопасный колбэк.</p>
                 </div>
@@ -606,38 +590,47 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 8: KINESCOPE -->
+    <!-- СЛАЙД 7: KINESCOPE -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="reveal-text">Видеохостинг: Kinescope</h2>
             <div class="kinescope-layout">
                 <div class="kinescope-features reveal-card" style="transition-delay: 0.1s;">
                     <div class="kinescope-badge">
-                        🎬 Внешний сервис
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2"/></svg>
+                        Внешний сервис
                     </div>
                     <div class="k-row">
-                        <div class="k-icon">🛡️</div>
+                        <div class="k-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7043" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
                         <div class="k-text">
                             <div class="k-text-title">DRM-защита</div>
                             <p>Widevine/FairPlay шифрование. Видео нельзя скачать или перехватить.</p>
                         </div>
                     </div>
                     <div class="k-row">
-                        <div class="k-icon">⚡</div>
+                        <div class="k-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7043" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><bolt/><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
                         <div class="k-text">
                             <div class="k-text-title">CDN + адаптивное качество</div>
                             <p>Автоматически подстраивает качество под скорость интернета пользователя.</p>
                         </div>
                     </div>
                     <div class="k-row">
-                        <div class="k-icon">🔗</div>
+                        <div class="k-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7043" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        </div>
                         <div class="k-text">
                             <div class="k-text-title">Webhook-интеграция</div>
                             <p>Уведомления о статусах видео. Контроллеры KinescopeDrm и KinescopeWebhook.</p>
                         </div>
                     </div>
                     <div class="k-row">
-                        <div class="k-icon">💾</div>
+                        <div class="k-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff7043" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+                        </div>
                         <div class="k-text">
                             <div class="k-text-title">Нет нагрузки на наш сервер</div>
                             <p>Стриминг идёт напрямую через CDN Kinescope, не через наш бэкенд.</p>
@@ -676,7 +669,7 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 9: ЮКАССА -->
+    <!-- СЛАЙД 8: ЮКАССА -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="reveal-text">Биллинг: ЮКасса</h2>
@@ -695,7 +688,6 @@
                     <h3>⚠️ Почему нет реальных платежей</h3>
                     <p style="margin-bottom: 1rem;">Для приёма реальных платежей в России необходима онлайн-касса (54-ФЗ). Это физическое устройство или облачный сервис, который фискализирует каждый платёж и отправляет чек в ФНС.</p>
                     <ul class="info-list">
-                        <li>Стоимость подключения облачной кассы — от ~3000 ₽/мес</li>
                         <li>Требуется договор с оператором фискальных данных (ОФД)</li>
                         <li>Необходима регистрация ИП или ООО</li>
                         <li>Планируем решить этот вопрос при коммерческом запуске</li>
@@ -705,7 +697,7 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 10: ФРОНТЕНД -->
+    <!-- СЛАЙД 9: ФРОНТЕНД -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="reveal-text">Фронтенд: переход на React</h2>
@@ -738,97 +730,100 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 11: ИНТЕРФЕЙС -->
-<section class="slide">
-    <div class="slide-content">
-        <h2 class="reveal-text">Интерфейс платформы</h2>
-
-        <div class="screenshots-grid-compact screenshots-grid-six">
-            <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.0s">
-                <img src="images/screenshot-1.png" alt="Главная страница платформы">
-                <div class="zoom-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
-                        <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+    <!-- СЛАЙД 10: ИНТЕРФЕЙС -->
+    <section class="slide">
+        <div class="slide-content">
+            <h2 class="reveal-text">Интерфейс платформы</h2>
+            <div class="screenshots-grid-compact screenshots-grid-six">
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.0s">
+                    <img src="images/screenshot-1.png" alt="Главная страница платформы">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
-            </div>
-
-            <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.1s">
-                <img src="images/screenshot-2.png" alt="Страница лекции">
-                <div class="zoom-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
-                        <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.1s">
+                    <img src="images/screenshot-2.png" alt="Страница лекции">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
-            </div>
-
-            <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.2s">
-                <img src="images/screenshot-3.png" alt="Экран с материалами курса">
-                <div class="zoom-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
-                        <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.2s">
+                    <img src="images/screenshot-3.png" alt="Экран с материалами курса">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
-            </div>
-
-            <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.3s">
-                <img src="images/screenshot-4.png" alt="Прохождение тестирования">
-                <div class="zoom-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
-                        <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.3s">
+                    <img src="images/screenshot-4.png" alt="Прохождение тестирования">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
-            </div>
-
-            <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.4s">
-                <img src="images/screenshot-5.png" alt="Личный кабинет или прогресс пользователя">
-                <div class="zoom-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
-                        <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.4s">
+                    <img src="images/screenshot-5.png" alt="Личный кабинет">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
-            </div>
-
-            <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.5s">
-                <img src="images/screenshot-6.png" alt="Дополнительный экран платформы">
-                <div class="zoom-icon">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
-                        <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                <div class="screenshot-compact reveal-card screenshot-pop-animation hover-lift" style="transition-delay: 0.5s">
+                    <img src="images/screenshot-6.png" alt="Дополнительный экран платформы">
+                    <div class="zoom-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="8" stroke="white" stroke-width="2"/>
+                            <path d="M23 23L32 32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-    <!-- СЛАЙД 12: БЕТА-ЗАПУСК -->
+    <!-- СЛАЙД 11: БЕТА-ЗАПУСК -->
     <section class="slide">
         <div class="slide-content">
             <div class="beta-launch">
-                <div class="beta-badge reveal-text">✅ Запущено в конце апреля 2026</div>
+                <div class="beta-badge reveal-text">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-right:5px;vertical-align:middle;"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    Запущено в конце апреля 2026
+                </div>
                 <h2 class="reveal-text" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">Бета-версия платформы</h2>
                 <p class="reveal-text" style="transition-delay: 0.2s; max-width: 700px; margin: 0 auto; font-size: 1rem;">
                     Первый рабочий курс — <strong style="color: var(--accent);">«Гармонический анализ»</strong> от нашего преподавателя. Студенты уже могут учиться на платформе.
                 </p>
                 <div class="beta-info">
                     <div class="beta-card reveal-card" style="transition-delay: 0.3s;">
-                        <div class="beta-emoji">📖</div>
+                        <div class="beta-icon">
+                            <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                        </div>
                         <h4>Конспекты</h4>
                         <p>Структурированные текстовые материалы с поддержкой Markdown.</p>
                     </div>
                     <div class="beta-card reveal-card" style="transition-delay: 0.4s;">
-                        <div class="beta-emoji">🎥</div>
+                        <div class="beta-icon">
+                            <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2"/></svg>
+                        </div>
                         <h4>Видеолекции</h4>
                         <p>Защищённые лекции преподавателя через Kinescope DRM.</p>
                     </div>
                     <div class="beta-card reveal-card" style="transition-delay: 0.5s;">
-                        <div class="beta-emoji">📝</div>
+                        <div class="beta-icon">
+                            <svg class="svg-icon-lg" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        </div>
                         <h4>Тесты</h4>
                         <p>Проверка знаний с автоматической проверкой результатов.</p>
                     </div>
@@ -837,38 +832,50 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 13: ПЛАНЫ НА БУДУЩЕЕ -->
+    <!-- СЛАЙД 12: ПЛАНЫ НА БУДУЩЕЕ -->
     <section class="slide">
         <div class="slide-content">
             <h2 class="reveal-text">Планы на будущее</h2>
             <div class="future-grid">
                 <div class="future-card reveal-card" style="transition-delay: 0.0s;">
-                    <div class="future-emoji">🤖</div>
+                    <div class="future-icon">
+                        <svg class="svg-icon-xl" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="10" x="3" y="11" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" x2="8" y1="16" y2="16"/><line x1="16" x2="16" y1="16" y2="16"/></svg>
+                    </div>
                     <h3>AI-мониторинг</h3>
                     <p>Внедрить модель машинного обучения для распознавания подозрительного поведения: фрод, попытки обхода защиты.</p>
                 </div>
                 <div class="future-card reveal-card" style="transition-delay: 0.1s;">
-                    <div class="future-emoji">📱</div>
+                    <div class="future-icon">
+                        <svg class="svg-icon-xl" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>
+                    </div>
                     <h3>Мобильное приложение</h3>
                     <p>Написать iOS и Android приложение.</p>
                 </div>
                 <div class="future-card reveal-card" style="transition-delay: 0.2s;">
-                    <div class="future-emoji">🏫</div>
+                    <div class="future-icon">
+                        <svg class="svg-icon-xl" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
                     <h3>Мультикурсовая платформа</h3>
                     <p>Выпустить полноценную мультикурсовую платформу в продакшн. Это главная цель на следующий этап.</p>
                 </div>
                 <div class="future-card reveal-card" style="transition-delay: 0.3s;">
-                    <div class="future-emoji">👨‍🏫</div>
+                    <div class="future-icon">
+                        <svg class="svg-icon-xl" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
                     <h3>Привлечение преподавателей</h3>
                     <p>Начать искать преподавателей, которые будут вести авторские курсы на нашей платформе.</p>
                 </div>
                 <div class="future-card reveal-card" style="transition-delay: 0.4s;">
-                    <div class="future-emoji">🎨</div>
+                    <div class="future-icon">
+                        <svg class="svg-icon-xl" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
                     <h3>Новый UI/UX</h3>
                     <p>Полноценный дизайнерский макет. Современный и профессиональный интерфейс.</p>
                 </div>
                 <div class="future-card reveal-card" style="transition-delay: 0.5s;">
-                    <div class="future-emoji">💰</div>
+                    <div class="future-icon">
+                        <svg class="svg-icon-xl" viewBox="0 0 24 24" fill="none" stroke="#5b6cf9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="1" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
                     <h3>Реальные платежи</h3>
                     <p>Подключить онлайн-кассу для приёма реальных платежей (54-ФЗ). Полноценный коммерческий запуск.</p>
                 </div>
@@ -876,7 +883,7 @@
         </div>
     </section>
 
-    <!-- СЛАЙД 14: СПАСИБО + QR -->
+    <!-- СЛАЙД 13: СПАСИБО + QR -->
     <section class="slide slide-footer">
         <div class="slide-content">
             <h1 class="reveal-text fade-in-scale">Спасибо за внимание!</h1>
