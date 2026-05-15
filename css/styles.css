@@ -569,10 +569,30 @@ p {
 /* SCREENSHOTS - УМЕНЬШЕНЫ НА 7% + БОЛЬШИЕ ОТСТУПЫ */
 .screenshots-grid-compact {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;              /* ← БЫЛО 2.5rem, ТЕПЕРЬ 4rem */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
     width: 100%;
-    max-height: 500px;
+    max-width: 1120px;
+    max-height: none;
+    margin: 0 auto;
+}
+
+.screenshots-grid-six .screenshot-compact {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 1024px) {
+    .screenshots-grid-compact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .screenshots-grid-compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
 
 .screenshot-compact {
