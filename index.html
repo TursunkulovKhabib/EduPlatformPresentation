@@ -546,6 +546,14 @@
                     <img src="images/logo-postman.png" alt="Postman">
                     <div class="tech-label">Postman</div>
                 </div>
+                <div class="tech-item">
+                    <img src="images/logo-grafana.png" alt="Grafana" class="tech-logo">
+                    <span class="tech-name">Grafana</span>
+                </div>
+                <div class="tech-item">
+                    <img src="images/logo-nginx.png" alt="Nginx" class="tech-logo">
+                    <span class="tech-name">Nginx</span>
+                </div>
             </div>
         </div>
     </section>
@@ -639,33 +647,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="vs-box reveal-card" style="transition-delay: 0.3s;">
-                    <h4>Почему отказались от своего стриминга</h4>
-                    <div class="vs-row">
-                        <span class="vs-old">Свой streaming-сервер</span>
-                        <span class="vs-arrow">→</span>
-                        <span class="vs-new">Kinescope CDN</span>
-                    </div>
-                    <div class="vs-row">
-                        <span class="vs-old">Нет DRM</span>
-                        <span class="vs-arrow">→</span>
-                        <span class="vs-new">Widevine DRM</span>
-                    </div>
-                    <div class="vs-row">
-                        <span class="vs-old">Нагрузка на нас</span>
-                        <span class="vs-arrow">→</span>
-                        <span class="vs-new">Offload в CDN</span>
-                    </div>
-                    <div class="vs-row">
-                        <span class="vs-old">Сложная инфра</span>
-                        <span class="vs-arrow">→</span>
-                        <span class="vs-new">API-интеграция</span>
-                    </div>
-                    <div class="vs-row">
-                        <span class="vs-old">Нет аналитики</span>
-                        <span class="vs-arrow">→</span>
-                        <span class="vs-new">Дашборд Kinescope</span>
-                    </div>
+                <div class="comparison-table" style="transition-delay: 0.3s;">
+                     <h4>Почему отказались от своего стриминга</h4>
+                    <div class="col-old">Свой streaming-сервер</div>
+                    <div class="col-arrow">→</div>
+                    <div class="col-new">Kinescope CDN</div>
+
+                    <div class="col-old">Нет DRM</div>
+                    <div class="col-arrow">→</div>
+                    <div class="col-new">Widevine DRM</div>
+
+                    <div class="col-old">Нагрузка на нас</div>
+                    <div class="col-arrow">→</div>
+                    <div class="col-new">Offload в CDN</div>
+
+                    <div class="col-old">Сложная инфа</div>
+                    <div class="col-arrow">→</div>
+                    <div class="col-new">API-интеграция</div>
+
+                    <div class="col-old">Нет аналитики</div>
+                    <div class="col-arrow">→</div>
+                    <div class="col-new">Дашборд Kinescope</div>
                 </div>
             </div>
         </div>
@@ -696,6 +698,55 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- SLIDE: Мониторинг (после слайда ЮКасса) -->
+    <section>
+        <div class="slide" id="slide-monitoring">
+        <div class="slide-content">
+
+            <div class="monitoring-header">
+            <div class="monitoring-title-block">
+                <div class="monitoring-icon"></div>
+                <div>
+                <h2 class="slide-title">Мониторинг</h2>
+                <p class="monitoring-subtitle">Полная наблюдаемость системы в реальном времени</p>
+                </div>
+            </div>
+            <div class="monitoring-stack">
+                <span class="stack-badge prometheus">Prometheus</span>
+                <span class="stack-badge grafana">Grafana</span>
+                <span class="stack-badge loki">Loki</span>
+                <span class="stack-badge promtail">Promtail</span>
+            </div>
+            </div>
+
+            <!-- Галерея -->
+            <div class="grafana-gallery">
+            <button class="gallery-arrow gallery-prev" onclick="grafanaGallery(-1)" aria-label="Предыдущий скриншот">&#8249;</button>
+
+            <div class="gallery-viewport">
+                <div class="gallery-track" id="grafanaTrack">
+                <div class="gallery-slide"><img src="images/grafana-1.jpg" alt="Grafana Dashboard 1" loading="lazy"></div>
+                <div class="gallery-slide"><img src="images/grafana-2.jpg" alt="Grafana Dashboard 2" loading="lazy"></div>
+                <div class="gallery-slide"><img src="images/grafana-3.jpg" alt="Grafana Dashboard 3" loading="lazy"></div>
+                <div class="gallery-slide"><img src="images/grafana-4.jpg" alt="Grafana Dashboard 4" loading="lazy"></div>
+                </div>
+            </div>
+
+            <button class="gallery-arrow gallery-next" onclick="grafanaGallery(1)" aria-label="Следующий скриншот">&#8250;</button>
+
+            <!-- Точки-индикаторы -->
+            <div class="gallery-dots" id="grafanaDots">
+                <span class="gallery-dot active" onclick="grafanaGoTo(0)"></span>
+                <span class="gallery-dot" onclick="grafanaGoTo(1)"></span>
+                <span class="gallery-dot" onclick="grafanaGoTo(2)"></span>
+                <span class="gallery-dot" onclick="grafanaGoTo(3)"></span>
+            </div>
+            </div>
+
+        </div>
         </div>
     </section>
 

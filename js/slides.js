@@ -103,3 +103,42 @@ document.addEventListener('keydown', (e) => {
         closeLightbox();
     }
 });
+
+/* ===== ГАЛЕРЕЯ GRAFANA ===== */
+(function () {
+  let current = 0;
+  const total = 4;
+
+  function render() {
+    const track = document.getElementById('grafanaTrack');
+    const dots = document.querySelectorAll('.gallery-dot');
+    if (!track) return;
+
+    track.style.transform = `translateX(-${current * 100}%)`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+    });
+  }
+
+  window.grafanaGallery = function (dir) {
+    current = (current + dir + total) % total;
+    render();
+  };
+
+  window.grafanaGoTo = function (index) {
+    current = index;
+    render();
+  };
+
+  // Свайп на тач-устройствах
+  const viewport = document.querySelector('.gallery-viewport');
+  if (viewport) {
+    let startX = 0;
+    viewport.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+    viewport.addEventListener('touchend', (e) => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) grafanaGallery(diff > 0 ? 1 : -1);
+    });
+  }
+})();

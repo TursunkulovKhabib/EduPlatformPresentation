@@ -907,3 +907,182 @@ p {
     .team-grid-compact { grid-template-columns: repeat(2, 1fr); }
     .screenshots-grid-compact { grid-template-columns: 1fr; gap: 1.5rem; }
 }
+
+/* ===== СЛАЙД МОНИТОРИНГ ===== */
+
+/* Шапка слайда */
+.monitoring-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.monitoring-title-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.monitoring-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.monitoring-subtitle {
+  font-size: 0.95rem;
+  opacity: 0.65;
+  margin-top: 0.2rem;
+}
+
+/* Бейджи стека */
+.monitoring-stack {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stack-badge {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: 1px solid transparent;
+}
+
+.stack-badge.prometheus {
+  background: rgba(230, 95, 50, 0.15);
+  color: #e6602e;
+  border-color: rgba(230, 95, 50, 0.35);
+}
+
+.stack-badge.grafana {
+  background: rgba(242, 154, 36, 0.15);
+  color: #f29a24;
+  border-color: rgba(242, 154, 36, 0.35);
+}
+
+.stack-badge.loki {
+  background: rgba(111, 66, 193, 0.15);
+  color: #9b6ddf;
+  border-color: rgba(111, 66, 193, 0.35);
+}
+
+.stack-badge.promtail {
+  background: rgba(70, 180, 130, 0.15);
+  color: #46b482;
+  border-color: rgba(70, 180, 130, 0.35);
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+.grafana-gallery {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.gallery-viewport {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-slide {
+  min-width: 100%;
+}
+
+.gallery-slide img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Стрелки */
+.gallery-arrow {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.15s;
+  line-height: 1;
+  user-select: none;
+}
+
+.gallery-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.1);
+}
+
+.gallery-arrow:active {
+  transform: scale(0.95);
+}
+
+/* Точки */
+.gallery-dots {
+  position: absolute;
+  bottom: -1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.45rem;
+}
+
+.gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.gallery-dot.active {
+  background: #f29a24; /* Grafana orange */
+  transform: scale(1.35);
+}
+
+.comparison-table {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr; /* левая | стрелка | правая */
+  align-items: center;
+  gap: 12px 0;
+}
+
+.col-old {
+  text-align: right;      /* прижимаем текст к стрелке */
+  color: red;
+  text-decoration: line-through;
+  padding-right: 16px;
+}
+
+.col-arrow {
+  text-align: center;     /* стрелка строго по центру */
+  color: white;
+}
+
+.col-new {
+  text-align: left;       /* прижимаем текст к стрелке */
+  color: #00ff88;         /* зелёный как на слайде */
+  font-weight: bold;
+  padding-left: 16px;
+}
