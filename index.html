@@ -14,14 +14,15 @@
     <style>
         /* ===== ЛОГОТИП В УГЛУ ===== */
         .corner-logo {
-            position: fixed;
-            top: 20px;
-            left: 24px;
-            z-index: 1000;
-            height: 36px;
+            position: absolute;
+            top: 24px;
+            left: 28px;
+            z-index: 10;
+            height: 90px;
             width: auto;
-            opacity: 0.85;
-            transition: opacity 0.3s ease;
+            opacity: 0.92;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
         }
         .corner-logo:hover { opacity: 1; }
 
